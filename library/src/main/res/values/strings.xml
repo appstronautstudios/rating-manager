@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ratingmanager</string>
+    <string name="key_rm_last" translatable="false">rm_last_shown</string>
+    <string name="key_rm_sessions" translatable="false">rm_session_count</string>
+</resources>
