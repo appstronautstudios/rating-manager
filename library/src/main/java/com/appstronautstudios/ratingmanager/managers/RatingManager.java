@@ -10,6 +10,8 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.preference.PreferenceManager;
 
+import androidx.annotation.NonNull;
+
 import com.appstronautstudios.ratingmanager.R;
 import com.appstronautstudios.ratingmanager.utils.YesNoCancelListener;
 import com.codemybrainsout.ratingdialog.RatingDialog;
@@ -98,7 +100,7 @@ public class RatingManager {
     public void showRAB(final Context context, int sessionInterval, int threshold, final String email, boolean force, final YesNoCancelListener listener) {
         RatingDialog.Builder.RatingThresholdClearedListener clearedListener = new RatingDialog.Builder.RatingThresholdClearedListener() {
             @Override
-            public void onThresholdCleared(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+            public void onThresholdCleared(@NonNull RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
                 ratingDialog.dismiss();
                 new AlertDialog.Builder(context)
                         .setTitle("Rate our app")
@@ -141,7 +143,7 @@ public class RatingManager {
 
         RatingDialog.Builder.RatingThresholdFailedListener failedListener = new RatingDialog.Builder.RatingThresholdFailedListener() {
             @Override
-            public void onThresholdFailed(RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
+            public void onThresholdFailed(@NonNull RatingDialog ratingDialog, float rating, boolean thresholdCleared) {
                 ratingDialog.dismiss();
                 new AlertDialog.Builder(context)
                         .setTitle("How can we improve?")
@@ -194,7 +196,7 @@ public class RatingManager {
         }
     }
 
-    public long getDaysSinceInstall(Context context) {
+    public long getDaysSinceInstall(@NonNull Context context) {
         long installTs = System.currentTimeMillis();
         PackageManager packMan = context.getPackageManager();
         try {

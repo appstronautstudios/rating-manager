@@ -1,9 +1,9 @@
 package com.appstronautstudios.ratingmanager.utils;
 
 public interface YesNoCancelListener {
-    public void onYes();
+    void onYes();
 
-    public void onNo();
+    void onNo();
 
-    public void onCancel();
+    void onCancel();
 }
